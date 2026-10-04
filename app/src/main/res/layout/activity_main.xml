@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button android:id="@+id/btnOverlay"
+            android:text="1. Overlay Permission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button android:id="@+id/btnAccess"
+            android:text="2. Enable Accessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <Button android:id="@+id/btnStart"
+            android:text="3. Start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <Button android:id="@+id/btnStop"
+            android:text="Stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:text="Aim Settings"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView android:text="FOV (px)" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp"/>
+        <SeekBar android:id="@+id/sbFov" android:max="800" android:progress="400" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Smoothness" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp"/>
+        <SeekBar android:id="@+id/sbSmooth" android:max="100" android:progress="35" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Trigger delay (ms)" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp"/>
+        <SeekBar android:id="@+id/sbDelay" android:max="500" android:progress="80" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Switch android:id="@+id/swEsp"
+            android:text="ESP"
+            android:checked="true"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Switch android:id="@+id/swAim"
+            android:text="Aim Assist"
+            android:checked="true"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Switch android:id="@+id/swAutoFire"
+            android:text="Auto Fire on Lock"
+            android:checked="false"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
