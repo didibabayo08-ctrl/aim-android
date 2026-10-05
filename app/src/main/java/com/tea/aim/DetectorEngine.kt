@@ -3,8 +3,6 @@ package com.tea.aim
 import android.content.Context
 import android.graphics.Bitmap
 import org.tensorflow.lite.Interpreter
-import org.tensorflow.lite.gpu.CompatibilityList
-import org.tensorflow.lite.gpu.GpuDelegate
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -19,16 +17,10 @@ class DetectorEngine(private val context: Context) {
     private var iouThreshold  = 0.45f
 
     private val interpreter: Interpreter
-    private val gpuDelegate: GpuDelegate?
 
     init {
-        val compat = CompatibilityList()
-        gpuDelegate = if (compat.isDelegateSupportedOnThisDevice)
-            GpuDelegate(compat.bestOptionsForThisDevice) else null
-
         val opts = Interpreter.Options().apply {
             setNumThreads(4)
-            gpuDelegate?.let { addDelegate(it) }
         }
         interpreter = Interpreter(loadModel("yolov8n_int8.tflite"), opts)
     }
@@ -113,6 +105,5 @@ class DetectorEngine(private val context: Context) {
 
     fun close() {
         interpreter.close()
-        gpuDelegate?.close()
     }
 }
